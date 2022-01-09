@@ -1,8 +1,4 @@
 class ProductManufacturer < ApplicationRecord
-    validates :title, presence: true, lenght: {minimum: 2}
-    validates :body, presence: true, lenght: {minimum: 2}
-
-    def formatted_created_at
-        created_at.strftime('%Y-%m-%d %H:%M:%S')
-    end
-end
+        validates :name, presence: true
+        validates :description, presence: true, length: { minimum: 10 }
+ end

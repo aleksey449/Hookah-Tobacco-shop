@@ -3,7 +3,7 @@
 <ul>
   <% @product_manufacturers.each do |product_manufacturer| %>
     <li>
-      <%= product_manufacturer.title %>
+    <%= link_to product_manufacturer.name, product_manufacturer%>
     </li>
   <% end %>
 </ul>
