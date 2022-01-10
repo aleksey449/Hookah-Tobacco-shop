@@ -1,9 +1,11 @@
-class ApplicationController < ActionController::Base
-    def after_sign_in_path_for(resource)
-        current_user_path
-    end
+# frozen_string_literal: true
 
-    def after_sign_out_path_for(resource_or_scope)
-        request.referrer
-    end
+class ApplicationController < ActionController::Base
+  def after_sign_in_path_for(_resource)
+    current_user_path
+  end
+
+  def after_sign_out_path_for(_resource_or_scope)
+    request.referrer
+  end
 end
