@@ -1,2 +1,4 @@
-class ProductTemplate< ApplicationRecord
+# frozen_string_literal: true
+
+class ProductTemplate < ApplicationRecord
 end

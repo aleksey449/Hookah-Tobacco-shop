@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-    root 'product_manufacturers#index'
+  root 'product_manufacturers#index'
 
-    resources :product_manufacturers
+  resources :product_manufacturers
 end
