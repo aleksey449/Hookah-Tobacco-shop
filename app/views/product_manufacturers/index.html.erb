@@ -1,0 +1,9 @@
+<h1>ProductManufacturers</h1>
+
+<ul>
+  <% @product_manufacturers.each do |product_manufacturer| %>
+    <li>
+    <%= link_to product_manufacturer.name, product_manufacturer%>
+    </li>
+  <% end %>
+</ul>
