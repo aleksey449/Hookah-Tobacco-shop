@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'product_categories#index'
+  root 'home#index'
 
   resources :product_categories
   resources :product_manufacturers
+  resources :product_templates
 end

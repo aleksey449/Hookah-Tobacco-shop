@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_111_151_117) do
+ActiveRecord::Schema.define(version: 2022_01_14_155957) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,6 +31,13 @@ ActiveRecord::Schema.define(version: 20_220_111_151_117) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "product_manufacturers", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -39,10 +45,18 @@ ActiveRecord::Schema.define(version: 20_220_111_151_117) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'product_categories', force: :cascade do |t|
-    t.string 'name'
-    t.string 'description'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "product_templates", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.money "price", scale: 2, null: false
+    t.bigint "product_category_id"
+    t.bigint "product_manufacturer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_category_id"], name: "index_product_templates_on_product_category_id"
+    t.index ["product_manufacturer_id"], name: "index_product_templates_on_product_manufacturer_id"
   end
+
+  add_foreign_key "product_templates", "product_categories"
+  add_foreign_key "product_templates", "product_manufacturers"
 end

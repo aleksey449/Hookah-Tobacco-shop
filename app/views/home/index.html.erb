@@ -1,0 +1,21 @@
+<h1>Главная страница</h1>
+
+<h2> <%= link_to('Производители', product_manufacturers_path) %> </h2>
+<ul>
+  <% @product_manufacturers.each do |product_manufacturer| %>
+    <li>
+    <%= link_to product_manufacturer.name, product_manufacturer%>
+    <%= ":" + product_manufacturer.description %>
+    </li>
+  <% end %>
+</ul>
+
+<h2> <%= link_to('Категории', product_categories_path) %> </h2>
+<ul>
+  <% @product_categories.each do |product_category| %>
+    <li>
+    <%= link_to product_category.name, product_category%>
+    <%= ":" + product_category.description %>
+    </li>
+  <% end %>
+</ul>
