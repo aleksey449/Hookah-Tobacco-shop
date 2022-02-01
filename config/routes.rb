@@ -3,7 +3,5 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :product_categories
-  resources :product_manufacturers
-  resources :product_templates
+  resources :product_categories, :product_manufacturers, :product_templates
 end
