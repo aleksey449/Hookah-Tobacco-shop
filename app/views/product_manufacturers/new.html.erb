@@ -1,3 +1,23 @@
-<h1>New product_manufacturer</h1>
+<h1>New ProductManufacturer</h1>
 
-<%= render "form", product_manufacturer: @product_manufacturer %>
+<%= form_with model: @product_manufacturer do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @product_manufacturer.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %><br>
+    <% @product_manufacturer.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

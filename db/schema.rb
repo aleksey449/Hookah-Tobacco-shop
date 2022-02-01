@@ -12,31 +12,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_111_151_117) do
+ActiveRecord::Schema.define(version: 20_220_114_155_957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
-  create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-  end
-
-  create_table "product_manufacturers", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'admins', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.string 'confirmation_token'
+    t.datetime 'confirmed_at'
+    t.datetime 'confirmation_sent_at'
+    t.string 'unconfirmed_email'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['email'], name: 'index_admins_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_admins_on_reset_password_token', unique: true
   end
 
   create_table 'product_categories', force: :cascade do |t|
@@ -45,4 +38,26 @@ ActiveRecord::Schema.define(version: 20_220_111_151_117) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end
+
+  create_table 'product_manufacturers', force: :cascade do |t|
+    t.string 'name'
+    t.string 'description'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'product_templates', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'description', null: false
+    t.money 'price', scale: 2, null: false
+    t.bigint 'product_category_id'
+    t.bigint 'product_manufacturer_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['product_category_id'], name: 'index_product_templates_on_product_category_id'
+    t.index ['product_manufacturer_id'], name: 'index_product_templates_on_product_manufacturer_id'
+  end
+
+  add_foreign_key 'product_templates', 'product_categories'
+  add_foreign_key 'product_templates', 'product_manufacturers'
 end

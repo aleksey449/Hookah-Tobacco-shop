@@ -41,7 +41,7 @@ class ProductManufacturersController < ApplicationController
     @product_manufacturer = ProductManufacturer.find(params[:id])
     @product_manufacturer.destroy
 
-    redirect_to root_path
+    redirect_to product_manufacturers_path
   end
 
   private

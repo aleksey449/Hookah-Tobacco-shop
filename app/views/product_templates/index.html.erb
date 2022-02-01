@@ -1,0 +1,26 @@
+<h1>Hookahs in stock!</h1>
+
+  
+<div class="container">
+  <div class="row">
+    <div class="col-3 mt-4 aside-hide">
+      <nav class="card">
+        <ul>
+        <% @product_templates.each do |product_template| %>
+            <li>
+          <%= link_to product_template.name, product_categories_path(:categ => product_template.id), class: "list-group-product_manufacturer" %>
+            <li>
+            <%= link_to product_template.name, product_manufacturers_path(:categ => product_template.id), class: "list-group-product_category" %>
+         </li>
+        <% end %>
+        </ul>
+
+      </nav>
+    </div>
+    <div class="col-lg-9">
+      <section class="section-name padding-y-sm">
+        <div class="container">
+          <header class="section-heading">
+            <h1>ProductTemplates</h1>
+          </header>
+          <div class="row">

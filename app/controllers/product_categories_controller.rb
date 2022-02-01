@@ -15,7 +15,7 @@ class ProductCategoriesController < ApplicationController
 
   def create
     @product_category = ProductCategory.new(product_category_params)
-
+    # byebug
     if @product_category.save
       redirect_to @product_category
     else
@@ -41,7 +41,7 @@ class ProductCategoriesController < ApplicationController
     @product_category = ProductCategory.find(params[:id])
     @product_category.destroy
 
-    redirect_to root_path
+    redirect_to product_categories_path
   end
 
   private
