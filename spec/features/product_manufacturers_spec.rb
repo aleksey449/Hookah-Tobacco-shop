@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe ProductManufacturer do
   it '#index' do
-    product_manufacturer = ProductManufacturer.create(name: 'Кальяны', description: 'Описание')
+    product_manufacturer = described_class.create(name: 'Кальяны', description: 'Описание')
 
     visit root_path
 
@@ -16,7 +16,7 @@ RSpec.describe ProductManufacturer do
   end
 
   it '#show' do
-    product_manufacturer = ProductManufacturer.create(name: 'Кальяны', description: 'Описание')
+    product_manufacturer = described_class.create(name: 'Кальяны', description: 'Описание')
 
     visit product_manufacturer_path(product_manufacturer)
 
@@ -25,7 +25,7 @@ RSpec.describe ProductManufacturer do
   end
 
   it '#destroy' do
-    product_manufacturer = ProductManufacturer.create(name: 'Кальяны', description: 'Описание')
+    product_manufacturer = described_class.create(name: 'Кальяны', description: 'Описание')
     visit product_manufacturer_path(product_manufacturer)
     click_on 'Destroy'
     expect(page).to have_current_path(product_manufacturers_path)
@@ -33,7 +33,7 @@ RSpec.describe ProductManufacturer do
   end
 
   it '#update' do
-    product_manufacturer = ProductManufacturer.create(name: 'Кальяны', description: 'Описание')
+    product_manufacturer = described_class.create(name: 'Кальяны', description: 'Описание')
 
     visit product_manufacturer_path(product_manufacturer)
 
@@ -55,8 +55,5 @@ RSpec.describe ProductManufacturer do
     click_on 'Create Product manufacturer'
     expect(page).to have_content('Кальян')
     expect(page).to have_content('Из нержавеющей стали')
-  end
-
-  it '#new' do
   end
 end
