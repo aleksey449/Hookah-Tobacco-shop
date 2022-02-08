@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe ProductCategory do
   it '#index' do
-    product_category = ProductCategory.create(name: 'Кальяны', description: 'Описание')
+    product_category = described_class.create(name: 'Кальяны', description: 'Описание')
 
     visit root_path
 
@@ -16,7 +16,7 @@ RSpec.describe ProductCategory do
   end
 
   it '#show' do
-    product_category = ProductCategory.create(name: 'Кальяны', description: 'Описание')
+    product_category = described_class.create(name: 'Кальяны', description: 'Описание')
 
     visit product_category_path(product_category)
 
@@ -25,7 +25,7 @@ RSpec.describe ProductCategory do
   end
 
   it '#destroy' do
-    product_category = ProductCategory.create(name: 'Кальяны', description: 'Описание')
+    product_category = described_class.create(name: 'Кальяны', description: 'Описание')
 
     visit product_category_path(product_category)
     click_on 'Destroy'
@@ -36,7 +36,7 @@ RSpec.describe ProductCategory do
   end
 
   it '#update' do
-    product_category = ProductCategory.create(name: 'Кальяны', description: 'Описание')
+    product_category = described_class.create(name: 'Кальяны', description: 'Описание')
 
     visit product_category_path(product_category)
 
@@ -51,11 +51,6 @@ RSpec.describe ProductCategory do
   end
 
   it '#create' do
-    # 1.Зайти на страницу всех категорий /product_categories
-    # 2.Нажать кнопку "New ProductCategory"
-    # 3.Заполнить поля Name и Description
-    # 4.Нажать кнопку "Create Product category"
-    # 5.Убедиться, что в списки категорий появилась новая категория с данными из пункта 3
     visit product_categories_path
     click_on 'New ProductCategory'
     fill_in 'Name', with: 'Кальян'
@@ -63,15 +58,5 @@ RSpec.describe ProductCategory do
     click_on 'Create Product category'
     expect(page).to have_content('Кальян')
     expect(page).to have_content('Из нержавеющей стали')
-  end
-
-  it '#new' do
-    # 1.Зайти на странцу создания новой категории
-    # 2.Должен увидеть поля для заполнения Name и Description
-    # 3.Должен увидеть кнопку "Create Product category"
-    visit new_product_category_path
-    fill_in 'Name', with: ''
-    fill_in 'Description', with: ''
-    click_on 'Create Product category'
   end
 end
