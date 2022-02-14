@@ -1,0 +1,16 @@
+<h1>Product Manufacturers</h1>
+
+<ul>
+  <% @product_manufacturers.each do |product_manufacturer| %>
+    <li>
+      <%= link_to product_manufacturer.name, product_manufacturer%>
+      </li>
+      <%= link_to "Edit", edit_admins_product_manufacturer_path(product_manufacturer) %></li>
+      <%= link_to "Destroy", admins_product_manufacturer_path(product_manufacturer),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+     </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Product Manufacturer", new_admins_product_manufacturer_path %>
