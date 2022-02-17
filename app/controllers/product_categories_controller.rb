@@ -15,7 +15,6 @@ class ProductCategoriesController < ApplicationController
 
   def create
     @product_category = ProductCategory.new(product_category_params)
-    # byebug
     if @product_category.save
       redirect_to @product_category
     else

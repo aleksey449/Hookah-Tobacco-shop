@@ -41,6 +41,12 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot'
   gem 'rspec-rails'
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
+end
+
+group :test do
+  gem 'launchy'
 end
 
 group :development do

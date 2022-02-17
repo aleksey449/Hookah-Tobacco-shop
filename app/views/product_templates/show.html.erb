@@ -3,10 +3,3 @@
 <p><%= @product_template.price %></p>
 
 <p><%= @product_template.description %></p>
-
-<ul>
-  <li><%= link_to "Edit", edit_product_template_path(@product_template) %></li>
-  <li><%= link_to "Destroy", product_template_path(@product_template),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>

@@ -1,0 +1,11 @@
+Добро пожаловать в админку!
+<li>
+<%= button_to "Log out", destroy_admin_session_path, method: :delete %>
+</li>
+<li>
+<%= link_to "Категории", admins_product_categories_path %>
+</li>
+<li>
+<%= link_to "Производители", admins_product_manufacturers_path %>
+</li>
+
