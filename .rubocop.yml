@@ -12,13 +12,13 @@ Metrics/MethodLength:
   Max: 30  
 
 Metrics/BlockLength:
-  Max: 60  
+  Max: 100  
 
 RSpec/MultipleExpectations:
   Max: 5
 
 RSpec/ExampleLength:
-  Max: 20
+  Max: 50
 
 AllCops:
   Exclude:

@@ -11,13 +11,6 @@
           <%= link_to product_template.name, admins_product_categories_path(:categ => product_template.id), class: "list-group-product_manufacturer" %>
             <li>
             <%= link_to product_template.name, admins_product_manufacturers_path(:categ => product_template.id), class: "list-group-product_category" %>
-            <ul>
-            <li><%= link_to "Edit", edit_admins_product_template_path(product_template) %></li>
-            <li><%= link_to "Destroy", admins_product_template_path(product_template),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-            </li>
-            </ul>
             </li>
           <% end %>
         </ul>
